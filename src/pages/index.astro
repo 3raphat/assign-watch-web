@@ -1,0 +1,75 @@
+---
+import '@/styles/globals.css'
+import Layout from '@/layouts/Layout.astro'
+import { BackgroundBeams } from '@/components/ui/background-beams'
+import chromeLogo from '@/assets/chrome-fill.svg'
+import githubLogo from '@/assets/github-fill.svg'
+import { ShimmerLink } from '@/components/ui/shimmer-link'
+import { Spotlight } from '@/components/ui/spotlight'
+import { Package } from 'lucide-react'
+---
+
+<Layout>
+  <Spotlight
+    fill="#17b5be"
+    className="top-40 left-0 lg:left-96 lg:-top-20 w-[138%] lg:w-[84%]"
+  />
+  <BackgroundBeams client:load />
+  <div class="z-10 relative flex flex-col items-center px-4 py-16 text-center">
+    <div class="flex items-center gap-2 text-zinc-500 mb-4">
+      <Package className="size-4" />
+      <span class="text-sm"
+        >Extension for <a
+          href="https://app.leb2.org"
+          class="hover:text-[#17b5be] underline underline-offset-2 transition-colors"
+          >LEB2</a
+        >
+      </span>
+    </div>
+    <div class="space-y-4">
+      <h1
+        class="text-4xl tracking-tight md:text-5xl bg-gradient-to-br from-primary to-primary/50 bg-clip-text text-transparent"
+      >
+        Assign Watch
+      </h1>
+      <p class="max-w-md text-balance md:text-lg text-muted-foreground">
+        The easiest way to check your assignments and deadlines in LEB2.
+      </p>
+    </div>
+    <div class="max-w-64 w-full mt-8 flex flex-col gap-4">
+      <div class="flex items-center gap-2">
+        <span class="min-w-fit text-xs uppercase font-medium text-zinc-500">
+          ◆ Quick Install
+        </span>
+        <div class="h-px w-full bg-zinc-500"></div>
+      </div>
+      <ShimmerLink
+        className="shadow-md flex items-center gap-2"
+        href="https://chromewebstore.google.com/detail/dedhfmakhbgeopgdipofgooiibkanfad"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src={chromeLogo.src} alt="Chrome" class="size-5" />
+        <span class="text-sm">Add to Chrome - It's Free</span>
+      </ShimmerLink>
+    </div>
+
+    <div class="max-w-64 w-full mt-8 flex flex-col gap-4">
+      <div class="flex items-center gap-2">
+        <span class="min-w-fit text-xs uppercase font-medium text-zinc-500">
+          ◆ Alternative Install
+        </span>
+        <div class="h-px w-full bg-zinc-500"></div>
+      </div>
+      <a
+        href="https://github.com/3raphat/assign-watch/releases/latest"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mx-auto flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
+      >
+        <img src={githubLogo.src} alt="GitHub" class="size-5" />
+        <span class="text-sm">Download Latest</span>
+      </a>
+    </div>
+  </div>
+</Layout>
